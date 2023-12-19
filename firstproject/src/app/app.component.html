@@ -1,0 +1,119 @@
+<div *ngIf="isShown" class="row container-fluid" id="divshow">
+  <div class="container">
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <div class="e-card">
+          <table
+            style="width: 100%"
+            border="2px solid #ddd"
+            border-collapse="collapse"
+          >
+            <tr
+              width="100%"
+              style="padding: 16px; color: blue; background-color: lightpink"
+            >
+              <th>Code</th>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Annual Salary</th>
+              <th>Date of Birth</th>
+            </tr>
+            <td>{{ employee.code }}</td>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.gender }}</td>
+            <td>{{ employee.annualSalary }}</td>
+            <td>{{ employee.dateOfBirth }}</td>
+          </table>
+        </div>
+      </tr>
+
+      <tr *ngIf="!employees || employees.length == 0">
+        <td colspan="8">No employees to display</td>
+      </tr>
+      <br />
+    </tbody>
+  </div>
+</div>
+
+<button
+class="btn btn-primary"
+  (click)="toggleShow()"
+  type="checkbox"
+  style="background-color: cadetblue"
+>
+  show Table/hide Table</button
+><br /><br />
+
+<!-- TOD: Add a button
+add a click action to show or hide above table -->
+
+<!--TODO: Show employees names in cards -->
+
+<!-- use ngFor to render cards -->
+<!-- Design a card to show employee details -->
+
+<div *ngFor="let inncircle of inncircles">
+  <div class="col-sm-3 sai">
+    <span class="border border-primary">
+      <div class="card border border-primary mb-3 employee-card-border">
+        <img
+          class="profile-background-image__image relative employee-card-backgroundimage"
+          id="profile-background-image-target-image"
+          alt="Background Image"
+          src="../assets/nareh.id.jpg"
+        />
+
+        <div class="card-header">{{ inncircle.Image }}</div>
+        <img
+          class="card-img-top employee-card-img"
+          [src]="inncircle.Image"
+          alt="Card image cap"
+        />
+
+        <div
+          class="card-body text-black employee-card-body"
+          [ngStyle]="{
+            'background-color':
+              inncircle.gender === 'Female' ? 'lightpink' : 'aqua'
+          }"
+        >
+          <h3 class="card-title">{{ inncircle.name }}</h3>
+          <div class="card-body text-gender-info">
+            <p class="card-text">{{ inncircle.gender }}</p>
+            <div class="card-body text-info">
+              <p class="card-text">
+                {{ inncircle.proffesion }}
+              </p>
+              <div class="pb2 pv-text-details__left-panel ">
+                {{ inncircle.company }}
+                <span class="text-body-small inline t-black--light break-words">
+                  {{ inncircle.address }}
+                </span>
+                <span class="pv-text-details__separator t-black--light">
+                  <a
+                    href="/in/naresh-kokkula-a9b08427/overlay/contact-info/"
+                    id="top-card-text-details-contact-info"
+                    class="ember-view link-without-visited-state cursor-pointer text-heading-small inline-block break-words"
+                  >
+                  </a>
+                </span>
+                <ul
+                  class="pv-top-card--list pv-top-card--list-bullet display-flex pb1"
+                >
+                  <!---->
+                  <li class="text-body-small">
+                    <span class="t-black--light">
+                      <span class="t-bold">259</span> connections
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+
